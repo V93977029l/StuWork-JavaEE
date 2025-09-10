@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="teacher" class="dao.Teacher">
+        <property name="name" value="QAQ"></property>
+        <property name="tid" value="1"></property>
+    </bean>
+    <bean id="student" class="dao.Student">
+        <constructor-arg name="name" value="Fan"/>
+        <constructor-arg name="age" value="11"/>
+        <constructor-arg name="sid" value="1"/>
+    </bean>
+</beans>
