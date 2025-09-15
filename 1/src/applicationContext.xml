@@ -3,12 +3,37 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="teacher" class="dao.Teacher">
-        <property name="name" value="QAQ"></property>
-        <property name="tid" value="1"></property>
+        <property name="name" value="QAQ"/>
+        <property name="tid" value="1"/>
     </bean>
     <bean id="student" class="dao.Student">
         <constructor-arg name="name" value="Fan"/>
         <constructor-arg name="age" value="11"/>
         <constructor-arg name="sid" value="1"/>
+    </bean>
+    <bean id="mix" class="dao.Mix">
+        <property name="myList">
+            <list>
+                <value>list01</value>
+                <value>list02</value>
+            </list>
+        </property>
+        <property name="myArray">
+            <array>
+                <value>array01</value>
+                <value>array02</value>
+            </array>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="key01" value="map01"/>
+                <entry key="key02" value="map02"/>
+            </map>
+        </property>
+    </bean>
+    <bean name="school" class="dao.School">
+        <property name="schid" value="1"/>
+        <property name="student" ref="student">
+        </property>
     </bean>
 </beans>
