@@ -1,7 +1,6 @@
 package test;
 
 import dao.Student;
-import dao.Teacher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

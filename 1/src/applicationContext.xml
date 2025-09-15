@@ -32,8 +32,16 @@
         </property>
     </bean>
     <bean name="school" class="dao.School">
-        <property name="schid" value="1"/>
+        <property name="sid" value="1"/>
         <property name="student" ref="student">
         </property>
+    </bean>
+    <bean id="person1" class="dao.Person" scope="prototype">
+        <property name="id" value="1"/>
+        <property name="name" value="一"/>
+    </bean>
+    <bean id="person2" class="dao.Person">
+        <property name="id" value="2"/>
+        <property name="name" value="二"/>
     </bean>
 </beans>

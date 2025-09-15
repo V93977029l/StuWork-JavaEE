@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class School
 {
-    private int schid;
+    private int sid;
     private Student student;
 }
