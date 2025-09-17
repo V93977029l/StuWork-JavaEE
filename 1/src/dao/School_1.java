@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Data
-public class School_2 {
+public class School_1 {
     @Value("5")
     private int id;
     @Autowired
