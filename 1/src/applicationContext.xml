@@ -3,10 +3,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:component-scan base-package="dao"/>
     <context:component-scan base-package="annotation" />
 
@@ -53,4 +54,26 @@
         <property name="id" value="2"/>
         <property name="name" value="二"/>
     </bean>
+    
+    <!-- 定义目标对象 -->
+    <bean id="testDao" class="Dao_.TestDaoImpl"/>
+    
+    <!-- 定义切面 -->
+    <bean id="myAspect" class="AspectJ.xml.MyAspect"/>
+    
+    <!-- AOP配置 -->
+    <aop:config>
+        <!-- 配置切面 -->
+        <aop:aspect ref="myAspect">
+            <!-- 配置切入点 -->
+            <aop:pointcut id="myPointCut" expression="execution(* dao.*.*(..))"/>
+            <aop:before pointcut-ref="myPointCut" method="before"/>
+            <aop:after pointcut-ref="myPointCut" method="after"/>
+            <aop:after-returning pointcut-ref="myPointCut" method="afterReturning"/>
+            <aop:around pointcut-ref="myPointCut" method="around"/>
+            <aop:after-throwing method="exception" pointcut-ref="myPointCut" throwing="e"/>
+            <aop:after method="after" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+    
 </beans>
